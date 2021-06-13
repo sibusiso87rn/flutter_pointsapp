@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/login_with_widget.dart';
 import '../controllers/routing_controller.dart';
-import '../colors/custom_colors.dart';
+import '../constants/colors/custom_colors.dart';
 
 class SignupScreen extends StatefulWidget {
   bool _isObscurePassword = true;
@@ -12,6 +13,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+
   void _obscurePassword() {
     setState(
       () {
@@ -50,29 +52,23 @@ class _SignupScreenState extends State<SignupScreen> {
 
   SizedBox _getSizedBoxedButton(
       final String buttonText, final BuildContext context) {
-      final double _width = MediaQuery.of(context).size.width - 10;
+    final double _width = MediaQuery.of(context).size.width - 10;
 
     return SizedBox(
       width: _width,
       height: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: CustomColors.button_color,
+          primary: CustomColors.button_color_dark,
         ),
-        onPressed: () {
-          buttonText.compareTo('Signup') == 0
-              ? Navigator.of(context)
-                  .pushNamed(RoutingController.getSharedRouting.signUp)
-              : Navigator.of(context)
-                  .pushNamed(RoutingController.getSharedRouting.logon);
-        },
+        onPressed: () {},
         child: Text(
           buttonText,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20,
             fontFamily: 'Helvetica',
-            color: CustomColors.bold_text_color,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -86,15 +82,15 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(
         actions: [],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 50,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Container(
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 50,
+            ),
+            Container(
               height: 62,
               width: 102,
               child: FittedBox(
@@ -109,19 +105,13 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: TextFormField(
+            TextFormField(
               decoration: InputDecoration(
                 border: UnderlineInputBorder(),
                 labelText: 'Name',
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: TextFormField(
+            TextFormField(
               obscureText: widget._isObscureEmail,
               decoration: InputDecoration(
                 border: UnderlineInputBorder(),
@@ -134,10 +124,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: TextFormField(
+            TextFormField(
               obscureText: widget._isObscurePassword,
               decoration: InputDecoration(
                 border: UnderlineInputBorder(),
@@ -150,11 +137,29 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-        ],
+            SizedBox(
+              height: 20,
+            ),
+            _getSizedBoxedButton("Signup", context),
+            Container(
+              alignment: Alignment.center,
+              child: TextButton(
+                onPressed: () {Navigator.of(context)
+                    .pushNamed(RoutingController.getSharedRouting.logon);},
+                child: Text(
+                  'Log In',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                    fontFamily: 'Helvetica',
+                    color: CustomColors.bold_text_color,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

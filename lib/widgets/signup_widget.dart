@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
 
 import '../controllers/routing_controller.dart';
-import '../colors/custom_colors.dart';
+import '../constants/colors/custom_colors.dart';
 
 class SignupWidget extends StatelessWidget {
+  Container _getTextButton(
+      final String buttonText, final BuildContext context) {
+    return Container(
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          buttonText,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 17,
+            fontFamily: 'Helvetica',
+            color: CustomColors.bold_text_color,
+          ),
+        ),
+      ),
+    );
+  }
 
   SizedBox _getSizedBoxedButton(
       final String buttonText, final BuildContext context) {
@@ -54,20 +71,7 @@ class SignupWidget extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Container(
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Terms of Service',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 17,
-                  fontFamily: 'Helvetica',
-                  color: CustomColors.bold_text_color,
-                ),
-              ),
-            ),
-          )
+          _getTextButton('Terms of Service', context),
         ],
       ),
     );

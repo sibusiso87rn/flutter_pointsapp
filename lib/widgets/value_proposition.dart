@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:points_app/colors/custom_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../constants/widget_constants.dart';
+import '../constants/colors/custom_colors.dart';
 
 class ValuePropositionWidget extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8);

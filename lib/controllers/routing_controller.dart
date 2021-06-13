@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../screens/login_screen.dart';
 import '../screens/signup_screen.dart';
 import '../screens/home_screen.dart';
 
@@ -18,6 +19,8 @@ class RoutingController{
     switch (settings.name) {
       case '/sign-up':
         return MaterialPageRoute(builder: (context) => SignupScreen());
+      case '/logon':
+        return MaterialPageRoute(builder: (context) => LoginScreen());
       default:
         return MaterialPageRoute(builder: (context) => HomeScreen());
     }
