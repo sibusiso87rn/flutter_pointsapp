@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../constants/screen.dart';
 import '../constants/widget_constants.dart';
 import '../constants/colors/custom_colors.dart';
 
 class ValuePropositionWidget extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8);
-
   @override
   Widget build(BuildContext context) {
+    final double _firstBoxSize = Screen.height_without_app_bar(context)*0.35;
     return Container(
       child: Center(
         child: Directionality(
@@ -19,7 +20,7 @@ class ValuePropositionWidget extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 16),
               SizedBox(
-                height: 300,
+                height: _firstBoxSize,
                 child: PageView(
                   controller: controller,
                   children: List.generate(
@@ -33,7 +34,7 @@ class ValuePropositionWidget extends StatelessWidget {
                         vertical: 4,
                       ),
                       child: Container(
-                        height: 335,
+                        height: _firstBoxSize,
                         decoration: BoxDecoration(
                           color: CustomColors.button_color,
                         ),

@@ -28,7 +28,7 @@ class SignupWidget extends StatelessWidget {
 
     return SizedBox(
       width: _width,
-      height: 60,
+      height: 50,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: CustomColors.button_color,

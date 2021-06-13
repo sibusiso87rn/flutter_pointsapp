@@ -20,6 +20,11 @@ class Screen {
   static double height_with_app_bar(BuildContext context,AppBar appBar) {
     return height(context)-appBar.preferredSize.height-statusBarSize(context);
   }
+
+  static double height_without_app_bar(BuildContext context) {
+    return height(context)-statusBarSize(context);
+  }
+
   //INCHES
   static Size inches(BuildContext c) {
     Size pxSize = size(c);

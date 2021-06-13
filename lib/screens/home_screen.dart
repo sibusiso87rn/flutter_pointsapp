@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../constants/screen.dart';
 import '../constants/colors/custom_colors.dart';
 import '../constants/widget_constants.dart';
 import '../widgets/value_proposition.dart';
@@ -8,6 +10,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _width = MediaQuery.of(context).size.width - 10;
+    final double _firstBoxSize = Screen.height_without_app_bar(context)*0.06;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -15,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           alignment: Alignment.center,
           child: Column(
             children: [
-              SizedBox(height: 150),
+              SizedBox(height: _firstBoxSize),
               FittedBox(
                 child: Text(
                   'Welcome to',
